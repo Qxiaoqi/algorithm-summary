@@ -10,13 +10,14 @@ let data = [0, 49, 38, 65, 97, 76, 13, 29, 49];
   最后在对全体进行一次插入排序
   原因：从直接插入排序可知，如果数组基本有序，其时间复杂度可提高至O(n)
 
-  希尔排序时间复杂度不确定，取决于增量序列的设置
+  不稳定，希尔排序时间复杂度不确定，取决于增量序列的设置
 */
 
-/* 
-  data: 目标数组
-  dk: 增量值  
-*/
+/**
+ * 
+ * @param {Array} data 目标数组 
+ * @param {Number} dk 增量值 
+ */
 function ShellInsert(data, dk) {
   for (let i = dk + 1; i < data.length; i++) {
     if (data[i] < data[i-dk]) {
@@ -35,10 +36,11 @@ function ShellInsert(data, dk) {
   return data;
 }
 
-/* 
-  data: 目标数组
-  dlta: 增量序列
-*/
+/**
+ * 
+ * @param {Array} data 目标数组 
+ * @param {Array} dlta 增量序列 
+ */
 function ShellSort(data, dlta) {
   let newArr = [].concat(data);
   for (let i = 0; i < dlta.length; i++) {
@@ -48,4 +50,3 @@ function ShellSort(data, dlta) {
 }
 
 console.log(ShellSort(data, dlta));
-
