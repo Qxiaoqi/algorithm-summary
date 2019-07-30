@@ -11,7 +11,8 @@ var lengthOfLongestSubstring = function(s) {
   let right = 0;
   let temp = 0;
 
-  while (right <= s.length - 1) {
+  // 右边窗口到头时，则停止
+  while (right < s.length) {
     if (!myMap.has(s[right])) {
       // 如果hash表中没有找到，则right+1，并且将该值存入hash
       /* 
@@ -26,8 +27,10 @@ var lengthOfLongestSubstring = function(s) {
       // 结算一次ans
       temp = right - left;
       ans = temp > ans ? temp : ans;
-      // 找到了重复值，将value赋给left
-      left = myMap.get(s[right]);
+      // 找到了重复值，将value赋给left，并且要保证value值要比此时left大，才可赋值
+      if (myMap.get(s[right]) > left) {
+        left = myMap.get(s[right]);
+      }
       // 将窗口右侧值+1存入hash，并且右侧窗口右移一位
       myMap.set(s[right], right + 1);
       right += 1;
@@ -40,5 +43,5 @@ var lengthOfLongestSubstring = function(s) {
   return ans;
 };
 
-let res = lengthOfLongestSubstring(" ");
+let res = lengthOfLongestSubstring("abba");
 console.log(res);
