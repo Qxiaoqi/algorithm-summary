@@ -12,7 +12,7 @@ function reConstructBinaryTree(pre, vin)
   }
   // 存根节点的下标
   var root;
-  // 左子树 右子树 的前序遍历和后序遍历
+  // 左子树 右子树 的前序遍历和中序遍历
   var leftPre = [],
       leftVin = [],
       rightPre = [],
