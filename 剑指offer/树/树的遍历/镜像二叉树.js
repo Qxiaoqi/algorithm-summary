@@ -4,35 +4,35 @@ function TreeNode(x) {
   this.right = null;
 }
 
-function isSymmetrical (pRoot)
+function Mirror (root)
 {
   // write code here
-  let mirror = bfsFun(pRoot);
-  console.log(mirror);
-}
-
-// 转镜像二叉树
-// 广度优先， 队列
-function bfsFun (root) {
-  let queue = [];
-  if (root.length === 0) {
+  // 广度优先遍历，每个节点的两个孩子节点交换位置
+  if (!root) {
     return;
   }
+
+  let queue = [];
   queue.push(root);
 
-  while (queue.length) {
+  while (queue.length > 0) {
     let node = queue.shift();
-    // 交换两个子树，可不用判断，没有的null一样可交换
-    let temp = node.left;
-    node.left = node.right;
-    node.right = temp;
+    // node.val && console.log(node.val);
+    let temp;
+    if (node) {
+      temp = node.left;
+      node.left = node.right;
+      node.right = temp;
+    }
 
-    // 入队列
-    node.left && queue.push(node.left);
-    node.right && queue.push(node.right);
+    node && queue.push(node.left);
+    node && queue.push(node.right);
   }
+  console.log(root);
   return root;
 }
+
+
 
 let node1 = new TreeNode(1);
 let node2 = new TreeNode(2);
@@ -49,4 +49,4 @@ node2.right = node3;
 node4.left = node5;
 node4.right = node6;
 
-isSymmetrical(node1);
+Mirror(node1);
