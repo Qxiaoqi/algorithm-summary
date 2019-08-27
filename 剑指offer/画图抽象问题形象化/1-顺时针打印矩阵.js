@@ -13,22 +13,7 @@ function printMatrix(matrix)
     }
     return res;
   }
-  // // 二维矩阵只有一行
-  // if (matrix.length === 1) {
-  //   for (let i = 0; i < matrix[0].length; i++) {
-  //     res.push(matrix[0][i]);
-  //   }
-  //   return res;
-  // }
-  // // 二维矩阵只有一列
-  // if (matrix[0].length === 1) {
-  //   for (let j = 0; j < matrix.length; j++) {
-  //     // console.log(matrix[j][0]);
-  //     res.push(matrix[j][0]);
-  //   }
-  //   return res;
-  // }
-
+  
   // 存左上角和右下角
   let topLeft = [0, 0];
   let bottomRight = [matrix.length - 1, matrix[0].length - 1];
